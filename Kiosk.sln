@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kiosk", "Kiosk\Kiosk.csproj", "{B1966A8A-42E5-45AE-B1DA-E89983DC5CEC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kiosk.Tests", "Kiosk.Tests\Kiosk.Tests.csproj", "{3A35E7E7-904B-4454-A35D-B194F74D5021}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B1966A8A-42E5-45AE-B1DA-E89983DC5CEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1966A8A-42E5-45AE-B1DA-E89983DC5CEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1966A8A-42E5-45AE-B1DA-E89983DC5CEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1966A8A-42E5-45AE-B1DA-E89983DC5CEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A35E7E7-904B-4454-A35D-B194F74D5021}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A35E7E7-904B-4454-A35D-B194F74D5021}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A35E7E7-904B-4454-A35D-B194F74D5021}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A35E7E7-904B-4454-A35D-B194F74D5021}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6588DF4B-21FB-4113-96D2-6E85BF5E0FA6}
+	EndGlobalSection
+EndGlobal

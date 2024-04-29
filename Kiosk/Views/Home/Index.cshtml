@@ -1,0 +1,49 @@
+﻿@model List<Kiosk.Models.Language>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/knockout-3.5.1.js"></script>
+<script src="~/Scripts/ViewModel/KioskViewModel.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var model = new KioskViewModel(@Html.Raw(Json.Encode(Model)), '@Url.Action("GetMenuItems", "Home")');
+        ko.applyBindings(model);
+
+    });
+</script>
+
+<style type="text/css">
+    .big-btn {
+        background-color: darkseagreen;
+        display:block;
+        height: 100px;
+        margin-bottom: 5px;
+        margin-right: 5px;
+ 
+    }
+</style>
+<br>
+<div>
+    <button type="button" class="btn btn-primary btn-sm" data-bind="click: startOver">Start Over</button>
+</div>
+<br>
+<br>
+
+<div data-bind="hidden: languageSelected">
+    <select class="form-control" data-bind="options: availableLanguages, value:selectedLanguage, optionsText:'language', optionsCaption: 'Please Select a Language'"></select>
+</div>
+
+<div class="row">
+    <div data-bind="foreach: currentOptions, visible: languageSelected">
+        @*<button type="button" class="btn btn-primary btn-lg" data-bind="disable: $root.isLastNode, text: $data.Text, click: $root.nextPage"></button>*@
+        <button type="button" class="big-btn col-lg-3" data-bind="disable: $root.isLastNode, text: $data.Text, click: $root.nextPage"></button>
+
+    </div>
+</div>
+<br>
+<div data-bind="visible: languageSelected">
+    <button type="button" class="btn btn-primary btn-sm" data-bind="click: back">Back</button>
+</div>

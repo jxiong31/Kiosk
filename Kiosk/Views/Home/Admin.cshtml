@@ -1,0 +1,72 @@
+﻿@model List<Kiosk.Models.Language>
+
+@{
+    ViewBag.Title = "Admin";
+}
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/knockout-3.5.1.js"></script>
+<script src="~/Scripts/ViewModel/AdminViewModel.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var model = new AdminViewModel(@Html.Raw(Json.Encode(Model)), '@Url.Action("GetMenuItems", "Home")','@Url.Action("SaveNode", "Home")', '@Url.Action("DeleteNode", "Home")');
+        ko.applyBindings(model);
+
+    });
+</script>
+
+<style type="text/css">
+    .edit-border {
+        border: 1px solid #0026ff;
+        margin: auto;
+        width: 40%;
+        padding: 10px;
+    }
+
+    textarea {
+        width: 100% !important;
+    }
+</style>
+
+
+<h2>Admin</h2>
+<div data-bind="hidden: languageSelected">
+    <select class="form-control" data-bind="options: availableLanguages, value:selectedLanguage, optionsText:'language', optionsCaption: 'Please Select a Language'"></select>
+</div>
+
+<div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-10" data-bind="foreach: currentOptions, visible: languageSelected">
+        <div class="row">
+            <div type="button" class="btn btn-primary btn-lg col-lg-4" data-bind="text: $data.Text"></div>
+            <button type="button" class="btn btn-link col-sm-1" data-bind="click: $root.editNode">Edit</button>
+            <button type="button" class="btn btn-link col-sm-1" data-bind="click: $root.deleteNode">Delete</button>
+            <button type="button" class="btn btn-link col-sm-1" data-bind="hidden: $root.isLastNode, click: $root.nextPage">Next Step</button>
+            <br>
+            <br>
+        </div>
+        <br>
+    </div>
+    <div class="col-lg-2"></div>
+    <button type="button" class="btn btn-primary" data-bind="click: addNode, visible: languageSelected">Add New</button>
+</div>
+<br>
+
+<div class="row">
+    <div class="form-group edit-border" data-bind="visible: inEditMode">
+        <h4>Edit text</h4>
+        <div>
+            <textarea class="form-control" data-bind="textInput: currentNode().Text"></textarea>
+            <br>
+            <button type="button" class="btn btn-primary btn-sm" data-bind="click: saveNode">Save</button>
+            <button type="button" class="btn btn-default btn-sm" data-bind="click: cancelEdit">Cancel</button>
+            <br>
+            <br>
+        </div>
+    </div>
+</div>
+<br>
+<div data-bind="visible: languageSelected">
+    <button type="button" class="btn btn-primary btn-sm" data-bind="click: back">Back</button>
+</div>
+
